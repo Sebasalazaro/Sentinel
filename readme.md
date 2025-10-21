@@ -35,7 +35,8 @@ Construir una infraestructura desplegable en AWS (EC2) que permita ejecutar herr
 
 ### 3.1 Diagrama de Arquitectura
 
-![Arquitectura Earnest Porpoise](./21c405f3-20e5-40cf-9ab9-ded3120c3b23.png)
+![WhatsApp Image 2025-10-21 at 3 35 40 PM](https://github.com/user-attachments/assets/3731402a-7640-44da-864b-bd527ffd4001)
+
 
 ### 3.2 Descripción de Componentes
 
