@@ -35,19 +35,21 @@ Construir una infraestructura desplegable en AWS (EC2) que permita ejecutar herr
 
 ### 3.1 Diagrama de Arquitectura
 
-![WhatsApp Image 2025-10-21 at 3 35 40 PM](https://github.com/user-attachments/assets/3731402a-7640-44da-864b-bd527ffd4001)
+
+<img width="1100" height="518" alt="image" src="https://github.com/user-attachments/assets/8ff26937-88d1-4651-925d-7ea8eaad97f4" />
 
 
 ### 3.2 Descripción de Componentes
 
 | Componente | Descripción |
 |-------------|-------------|
-| **GitHub Repository** | Contiene el código fuente del cliente. Configurado con un **webhook** que envía eventos HTTP a la API del sistema cada vez que ocurre un `push` o `pull request`. |
-| **Webhook API (Earnest Porpoise)** | Endpoint expuesto en la instancia EC2 que recibe las notificaciones y dispara los análisis de seguridad. Implementado en Python (Flask o FastAPI). |
-| **Trivy** | Escáner de vulnerabilidades que analiza dependencias, contenedores e infraestructura como código (IaC). Detecta CVEs conocidos y versiones obsoletas. |
-| **OWASP ZAP** | Proxy de análisis dinámico que identifica vulnerabilidades activas (XSS, inyección, headers faltantes, etc.) mediante pruebas automatizadas sobre la aplicación. |
-| **AWS EC2** | Entorno de ejecución donde se aloja la API, los escáneres y el orquestador de tareas. Puede desplegarse mediante **Docker Compose** o **Terraform**. |
-| **Canal de Reporte** | Resultados exportados como JSON y enviados a Slack, correo o un dashboard (Grafana/ELK) para priorización. |
+| GitHub Repository| Contiene el código fuente del cliente. Configurado con un **webhook** que envía eventos HTTP a la API del sistema cada vez que ocurre un `push` o `pull request`. |
+| Webhook API  | Endpoint expuesto en la instancia EC2 que recibe las notificaciones y dispara los análisis de seguridad. Implementado en Python (Flask o FastAPI). |
+| Trivy | Escáner de vulnerabilidades que analiza dependencias, contenedores e infraestructura como código (IaC). Detecta CVEs conocidos y versiones obsoletas. |
+| OWASP ZAP | Proxy de análisis dinámico que identifica vulnerabilidades activas (XSS, inyección, headers faltantes, etc.) mediante pruebas automatizadas sobre la aplicación. |
+| AWS EC2 | Entorno de ejecución donde se aloja la API, los escáneres y el orquestador de tareas. Puede desplegarse mediante **Docker Compose** o **Terraform**. |
+| Canal de Reporte | Resultados exportados como JSON y enviados a Slack, correo o un dashboard (Grafana/ELK) para priorización. | #ESTO CREO QUE TOCA CAMBIARLO
+| Almacenamiento en DynamoDB | Aqui se almacenaran los resultados del escaneo, nombre del repo y metadata. |
 
 ---
 
