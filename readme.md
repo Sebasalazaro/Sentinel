@@ -1,4 +1,4 @@
-# Proyecto: **Earnest Porpoise – Plataforma de Escaneo Automático de Vulnerabilidades**
+# Proyecto: **Sentinel – Plataforma de Escaneo Automático de Vulnerabilidades**
 
 ## 1. Estrategia
 
@@ -24,10 +24,10 @@ Se busca que el sistema detecte vulnerabilidades comunes, priorice las de mayor 
 ## 2. Descripción General del Sistema
 
 ### 2.1 Nombre del Sistema
-**Earnest Porpoise** – Plataforma de Escaneo de Vulnerabilidades Automatizada.
+**Sentinel** – Plataforma de Escaneo de Vulnerabilidades Automatizada.
 
 ### 2.2 Objetivo General
-Construir una infraestructura desplegable en AWS (EC2) que permita ejecutar herramientas de escaneo como **Trivy** (para análisis de dependencias y CVEs) y **OWASP ZAP** (para análisis dinámico de aplicaciones), activadas automáticamente mediante **webhooks de GitHub**.
+Construir una infraestructura desplegable en AWS (EC2) que permita ejecutar herramientas de escaneo como **Trivy** y **OWASP ZAP**, activadas automáticamente mediante **webhooks de GitHub**.
 
 ---
 
