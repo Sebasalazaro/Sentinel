@@ -124,5 +124,5 @@ Construir una infraestructura desplegable en AWS (EC2) que permita ejecutar herr
 
 ## 10. Conclusión
 
-**Earnest Porpoise** proporciona una infraestructura segura, automatizada y escalable para incorporar la seguridad en el ciclo de vida del desarrollo de software.  
+**Sentinel** proporciona una infraestructura segura, automatizada y escalable para incorporar la seguridad en el ciclo de vida del desarrollo de software.  
 Al integrarse directamente con los repositorios y automatizar los escaneos de vulnerabilidades, la plataforma permite reducir riesgos sin ralentizar el desarrollo, fomentando una cultura DevSecOps práctica y sostenible.
