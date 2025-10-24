@@ -1,6 +1,7 @@
 import os, json, hmac, hashlib
 from datetime import datetime
 from fastapi import FastAPI, Request, HTTPException
+from fastapi.responses import JSONResponse
 import boto3
 
 app = FastAPI()
@@ -54,4 +55,4 @@ async def webhook(req: Request):
         }
     )
     print("[SQS] sent", resp.get("MessageId"), "to", SQS_URL)
-    return {"status": "queued", "messageId": resp.get("MessageId")}, 202
+    return JSONResponse(status_code=202, content={"status": "queued", "messageId": resp.get("MessageId")})
