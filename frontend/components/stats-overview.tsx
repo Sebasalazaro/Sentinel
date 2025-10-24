@@ -1,39 +1,43 @@
-import { Shield, AlertTriangle, CheckCircle2, Clock } from "lucide-react"
+import { Shield, AlertTriangle, CheckCircle2, XCircle } from "lucide-react"
 import { Card } from "@/components/ui/card"
+import { getDashboardStats } from "@/lib/s3"
 
-const stats = [
-  {
-    label: "Total Repositories",
-    value: "24",
-    icon: Shield,
-    trend: "+3 this month",
-  },
-  {
-    label: "Critical Issues",
-    value: "7",
-    icon: AlertTriangle,
-    trend: "-2 from last scan",
-    variant: "warning" as const,
-  },
-  {
-    label: "Passed Scans",
-    value: "17",
-    icon: CheckCircle2,
-    trend: "+5 this week",
-    variant: "success" as const,
-  },
-  {
-    label: "Pending Scans",
-    value: "3",
-    icon: Clock,
-    trend: "In queue",
-  },
-]
+export async function StatsOverview() {
+  const stats = await getDashboardStats()
 
-export function StatsOverview() {
+  const statCards = [
+    {
+      label: "Total Repositorios",
+      value: stats.totalRepositories.toString(),
+      icon: Shield,
+      trend: `${stats.scannedRepos} escaneados`,
+    },
+    {
+      label: "Vulnerabilidades Críticas",
+      value: stats.totalCritical.toString(),
+      icon: XCircle,
+      trend: "En todos los repos",
+      variant: "critical" as const,
+    },
+    {
+      label: "Vulnerabilidades Altas",
+      value: stats.totalHigh.toString(),
+      icon: AlertTriangle,
+      trend: "Requieren atención",
+      variant: "warning" as const,
+    },
+    {
+      label: "Total Vulnerabilidades",
+      value: stats.totalVulnerabilities.toString(),
+      icon: CheckCircle2,
+      trend: `${stats.totalMedium} medias, ${stats.totalLow} bajas`,
+      variant: "info" as const,
+    },
+  ]
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      {stats.map((stat) => {
+      {statCards.map((stat) => {
         const Icon = stat.icon
         return (
           <Card key={stat.label} className="p-6 bg-card border-border hover:border-primary/50 transition-colors">
@@ -45,20 +49,24 @@ export function StatsOverview() {
               </div>
               <div
                 className={`p-3 rounded-lg ${
-                  stat.variant === "warning"
-                    ? "bg-destructive/10"
-                    : stat.variant === "success"
-                      ? "bg-primary/10"
-                      : "bg-muted"
+                  stat.variant === "critical"
+                    ? "bg-red-500/10"
+                    : stat.variant === "warning"
+                      ? "bg-orange-500/10"
+                      : stat.variant === "info"
+                        ? "bg-blue-500/10"
+                        : "bg-muted"
                 }`}
               >
                 <Icon
                   className={`h-5 w-5 ${
-                    stat.variant === "warning"
-                      ? "text-destructive"
-                      : stat.variant === "success"
-                        ? "text-primary"
-                        : "text-muted-foreground"
+                    stat.variant === "critical"
+                      ? "text-red-500"
+                      : stat.variant === "warning"
+                        ? "text-orange-500"
+                        : stat.variant === "info"
+                          ? "text-blue-500"
+                          : "text-muted-foreground"
                   }`}
                 />
               </div>
