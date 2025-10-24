@@ -29,6 +29,8 @@ async def webhook(req: Request):
     raw = await req.body()
     sig = req.headers.get("X-Hub-Signature-256")
     event = req.headers.get("X-GitHub-Event", "unknown")
+    
+    print("[WEBHOOK] event=", event)
 
     if not verify_signature(raw, sig):
         raise HTTPException(status_code=401, detail="invalid signature")
@@ -43,5 +45,13 @@ async def webhook(req: Request):
         raise HTTPException(status_code=400, detail="repo_url requerido")
 
     body = json.dumps({"repo_url": repo_url, "ref": ref})
-    sqs.send_message(QueueUrl=SQS_URL, MessageBody=body)
-    return {"status": "queued", "repo": repo_url, "ref": ref}, 202
+    resp = sqs.send_message(
+        QueueUrl=SQS_URL,
+        MessageBody=body,
+        MessageAttributes={
+            "source": {"DataType": "String", "StringValue": "github-webhook"},
+            "event": {"DataType": "String", "StringValue": event}
+        }
+    )
+    print("[SQS] sent", resp.get("MessageId"), "to", SQS_URL)
+    return {"status": "queued", "messageId": resp.get("MessageId")}, 202
