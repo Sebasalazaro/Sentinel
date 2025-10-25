@@ -31,7 +31,7 @@ aws_secret_access_key = example
 
 
 
-remplace los example con  credenciales validas de aws 
+### remplace los example con  credenciales validas de aws 
 
 
 dentro de main.tf en el provider agregar:
