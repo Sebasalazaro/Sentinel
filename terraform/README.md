@@ -28,8 +28,7 @@ remplace los example con  credenciales validas de aws
 
 ## Cómo probar
 
-1. Configurar credenciales AWS válidas (archivo, env vars o roles).
-2. Ejecutar `terraform init`.
-3. Ejecutar `terraform plan`.
-4. Ejecutar `terraform apply`.
-5. Verificar en AWS los recursos creados.
+1. Ejecutar `terraform init`.
+2. Ejecutar `terraform plan`.
+3. Ejecutar `terraform apply`.
+4. Verificar en AWS los recursos creados.
