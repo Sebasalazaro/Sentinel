@@ -21,10 +21,17 @@ Este módulo requiere que el proveedor AWS esté configurado explícitamente en 
 Crear dentro del directorio root del modulo un directorio llamado .aws
 adentro de este agregar esto: 
 
+"[nombre usuario iam]" sin comillas, si no se usa un usuario iam, poner default
 aws_access_key_id = example
 aws_secret_access_key = example
 
 remplace los example con  credenciales validas de aws 
+
+dentro de main.tf en el provider agregar
+un argumento 
+profile = "[nombre usuario iam]" sin comillas, si no se usa un usuario iam, poner default
+
+
 
 ## Cómo probar
 
