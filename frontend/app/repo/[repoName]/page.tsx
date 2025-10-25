@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, FileText, Calendar } from "lucide-react"
 import Link from "next/link"
 
+export const revalidate = 60
+
 interface RepoPageProps {
   params: Promise<{ repoName: string }>
 }

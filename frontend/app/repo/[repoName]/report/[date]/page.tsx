@@ -8,6 +8,8 @@ import { ReportStats } from "@/components/report-stats"
 import { VulnerabilitiesList } from "@/components/vulnerabilities-list"
 import { RepositoryMetadata } from "@/components/repository-metadata"
 
+export const revalidate = 300
+
 interface ReportPageProps {
   params: Promise<{ repoName: string; date: string }>
 }

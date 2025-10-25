@@ -2,6 +2,8 @@ import { DashboardHeader } from "@/components/dashboard-header"
 import { RepositoryGrid } from "@/components/repository-grid"
 import { StatsOverview } from "@/components/stats-overview"
 
+export const revalidate = 60
+
 export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-background">
