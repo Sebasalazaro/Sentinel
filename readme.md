@@ -36,8 +36,7 @@ Construir una infraestructura desplegable en AWS (EC2) que permita ejecutar herr
 ### 3.1 Diagrama de Arquitectura
 
 
-<img width="1100" height="518" alt="image" src="https://github.com/user-attachments/assets/8ff26937-88d1-4651-925d-7ea8eaad97f4" />
-
+<img width="1101" height="448" alt="image" src="https://github.com/user-attachments/assets/dcf5aaae-f55b-4206-bdbd-860ce4237bfa" />
 
 ### 3.2 Descripción de Componentes
 
