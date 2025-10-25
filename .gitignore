@@ -1,2 +1,5 @@
 backend/venv-backend
 .env
+.terraform
+.aws
+.terraform.lock.hcl
