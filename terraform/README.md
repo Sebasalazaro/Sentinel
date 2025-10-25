@@ -26,12 +26,6 @@ aws_secret_access_key = example
 
 remplace los example con  credenciales validas de aws 
 
-- Variables de entorno: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`.
-- Archivo de credenciales en la ruta predeterminada `~/.aws/credentials` con perfiles nombrados.
-- Parámetros directos dentro del bloque `provider` (no recomendado por seguridad).
-- Roles y perfiles de instancia IAM (usado en EC2).
-- Otros métodos compatibles (como Vault, CLI configurado, etc.).
-
 ## Cómo probar
 
 1. Configurar credenciales AWS válidas (archivo, env vars o roles).
